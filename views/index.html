@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+        }
+
+        .container {
+            height: 100vh;
+        }
+
+        nav {
+            background-color: #577FC7;
+            color: rgb(255, 255, 255);
+            display: flex;
+            height: 10vh;
+            padding: 0 30px;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-links {
+            width: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            list-style-type: none;
+        }
+
+        .nav-links li {
+            display: inline-block;
+            padding: 10px 20px;
+            text-transform: capitalize;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .box {
+            background-color: #F0C5E9;
+            width: 320px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 40px;
+            color: #fff;
+            text-align: center;
+            text-transform: uppercase;
+            outline: solid 10px #577FC7;
+            outline-offset: 10px;
+        }
+
+        input[type="email"],
+        input[type="password"] {
+            outline: none;
+            display: block;
+            width: 200px;
+            margin: 10px auto;
+            padding: 10px 0;
+            text-align: center;
+            font-size: 15px;
+            border-radius: 25px;
+            border: 1px solid #577FC7;
+            transition: all .25s ease;
+        }
+
+        input[type="email"]:focus,
+        input[type="password"]:focus {
+            border: 1px solid rgb(99, 242, 132);
+            width: 230px;
+        }
+
+        input[type="email"],
+        input[type="password"]::placeholder {
+            text-transform: capitalize;
+        }
+
+        button {
+            display: block;
+            margin: auto;
+            padding: 8px 30px;
+            border-radius: 25px;
+            font-size: 17px;
+            text-transform: capitalize;
+            border: 1px solid #577FC7;
+            color: #577FC7;
+            background: #fff;
+            cursor: pointer;
+            transition: all .25s ease;
+            font-weight: 700;
+        }
+
+        button:hover {
+            border: 1px solid rgb(99, 242, 132);
+            color: rgb(99, 242, 132);
+        }
+
+        .fst {
+            padding: 10px;
+            background-color: #F0C5E9;
+            position: relative;
+        }
+
+        .fst:hover::after {
+            content: "click for more";
+            text-transform: capitalize;
+            background-color: #577FC7;
+            color: #fff;
+            font-weight: 700;
+            padding: 20px;
+            position: absolute;
+            top: 100%;
+            left: 0;
+        }
+
+        .fst:hover p {
+            color: red;
+        }
+
+        /*--------media queries-------*/
+
+        @media (max-width:700px) {
+            nav {
+                position: relative;
+            }
+
+            .hamburger {
+                position: absolute;
+                right: 20px;
+                z-index: 2;
+                cursor: pointer;
+            }
+
+            .hamburger div {
+                width: 33px;
+                background: #fff;
+                height: 3px;
+                margin: 5px 0;
+            }
+
+            .nav-links {
+                z-index: 1;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                flex-direction: column;
+                background-color: #577FC7;
+                transition: all 2s ease-in-out;
+                clip-path: circle(100px at 150% -50%);
+                pointer-events: none;
+            }
+
+            .nav-links li {
+                transition: all .5s ease-in;
+                opacity: 0;
+            }
+
+            .nav-links li:nth-child(1) {
+                transition-delay: 1s;
+            }
+
+            .nav-links li:nth-child(2) {
+                transition-delay: 1.2s;
+            }
+
+            .nav-links li:nth-child(3) {
+                transition-delay: 1.4s;
+            }
+
+            .nav-links li:nth-child(4) {
+                transition-delay: 1.6s;
+            }
+
+            .nav-links.open {
+                clip-path: circle(150% at 50%);
+                pointer-events: all;
+            }
+
+            .nav-links li.open {
+                opacity: 1;
+            }
+        }
+    </style>
+
+    <title></title>
+</head>
+
+<body>
+    <div class="container">
+        <nav>
+            <img src="converse.png" alt="" width="70px" class="logo">
+            <div class="hamburger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="nav-design.html">Home</a></li>
+                <li><a href="forms.html">forms</a></li>
+                <li><a href="box-design.html">about</a></li>
+                <li><a href="anoda-nav.html">navigation</a></li>
+            </ul>
+        </nav>
+
+        <form class="box" >
+            <h2>Sign Up</h3>
+                <input type="email" name="inp_username" placeholder="username" id="inp_username">
+                <input type="password" name="inp_password" placeholder="password" id="inp_password">
+                <button type="submit">Sign Up</button>
+        </form>
+        
+    </div>
+
+    <script>
+        let hamburger = document.querySelector(".hamburger")
+        let navLinks = document.querySelector(".nav-links");
+        let lis = document.querySelectorAll("li");
+        const myForm = document.querySelector('.box');
+        const login = document.querySelector('button');
+        console.log(myForm);
+        hamburger.addEventListener("click", () => {
+            console.log("clicked")
+            navLinks.classList.toggle("open")
+
+            lis.forEach(li => {
+                li.classList.toggle("open")
+            });
+        })
+
+        const API_URL = 'http://localhost:5500/register';
+
+        myForm.addEventListener('submit',function(ev){
+            ev.preventDefault();
+            
+            const user = document.querySelector('#inp_username').value;
+            const pwd = document.querySelector('#inp_password').value;
+            user.toLowerCase()
+            const holder = { user, pwd };
+
+            async function connectDB(){
+                console.log('started worling')
+                try {
+                    let response = await fetch(API_URL, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        credentials: 'include',
+                        body: JSON.stringify(holder)
+                    })
+                    console.log(response.status)
+                    console.log(response.json())
+                    
+                } catch (error) {
+                    console.log(error.stack)
+                }finally{
+                    console.log('submitted to DB')
+                }
+            }
+            connectDB()
+        });
+
+        
+       
+    </script>
+</body>
+
+</html>

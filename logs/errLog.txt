@@ -1,0 +1,15 @@
+20220622	210038	aea772b8-b042-4ed4-92cb-c747aad5ae64	Error: Not allowed by CORS
+20220622	215051	843e9222-3830-47b9-b7d5-f0655582be8a	TypeError: res.status is not a function
+20220622	215129	3a5f2caf-10b9-4e0f-949a-20ce4a586d1d	TypeError: res.status is not a function
+20220624	110325	e4fe0a7b-a0f6-4569-96d5-7ea072542a1d	Error: ENOENT: no such file or directory, stat 'C:\Users\USER\Desktop\skul-folder\PROJECT\New folder\nodeFolder\routes\views\index.html'
+20220629	232224	edbe1d55-d9c7-47de-aa9f-b877b80e63f9	Error: Not allowed by CORS
+20220629	232238	94ab1006-d5ed-4fa0-bf47-e083792f05e0	Error: Not allowed by CORS
+20220629	232621	67edf067-0070-4fae-bc60-da28ebe358c9	Error: Not allowed by CORS
+20220629	232818	17139a7a-8158-4866-8713-9dcd62040cad	Error: Not allowed by CORS
+20220629	232852	c10bfc47-d9ad-4679-8111-56f61bb17bf6	Error: Not allowed by CORS
+20220723	014041	e8f02f9d-ee64-4f97-a65f-3f90729853f7	Error: Not allowed by CORS
+20220724	221925	a71016d1-92e4-4802-97f8-8d7fb4a8d2a1	Error: Not allowed by CORS
+20220724	222319	9acd2757-e067-4e8f-9a71-bda65f6d1005	Error: Not allowed by CORS
+20220724	222441	fe4a726a-2f93-4bc4-9f3d-42a1813065a2	Error: Not allowed by CORS
+20220724	222846	2ef4b3c7-188b-4674-be7c-91aa917673f7	Error: Not allowed by CORS
+20220724	223015	8b8f3507-6b31-47c8-af09-488cdb4e57b3	Error: Not allowed by CORS
