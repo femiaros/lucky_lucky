@@ -5,8 +5,8 @@ const bcrypt = require('bcrypt');
 //handler for newuser received for the register router 
 const handleNewUser = async (req,res)=>{
     console.log(req.body);
-    const {user,pwd} = req.body;
-        if(!user || !pwd) return res.status(400).json({'message':'usermail and password required'});
+    const {user,pwd,phone,firstName,lastName} = req.body;
+        if(!user || !pwd || !phone) return res.status(400).json({'message':'usermail, password and phone are required'});
         //CHECK FOR DUPLICATE USERNAMES IN THE DB
         const duplicate = await User.findOne({usermail:user}).exec();  
         if(duplicate) return res.sendStatus(409);//conflict
@@ -17,9 +17,10 @@ const handleNewUser = async (req,res)=>{
         //create and store the new user in DB :mongo give us the power together with .create
         const result = await User.create({
             "usermail":user, 
+            "phone":phone, 
             "password":hashedPwd,
-            "firstname":'',
-            "lastname":''
+            "firstname":firstName,
+            "lastname":lastName
             //role already defualted in schema
             // Obj-ID is auto craeted in DB
         });

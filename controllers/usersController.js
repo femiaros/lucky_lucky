@@ -42,13 +42,14 @@ async function updateUser(req,res){
     }
     //find in db foundUser with that id
     const foundUser = await User.findOne({_id: req.body.id}).exec();
-    const {user,pwd,firstname,lastname} = req.body;
+    const {user,pwd,firstname,lastname,phone} = req.body;
     
     if(!foundUser){
         return res.status(204).json({"message":` No User matches: ID ${req.body.id}`});
     }
     try {
-        if(req.body?.foundUser) foundUser.usermail = user? user : foundUser.usermail;
+        if(req.body?.user) foundUser.usermail = user? user : foundUser.usermail;
+        if(req.body?.phone) foundUser.usermail = phone? phone : foundUser.phone;
         if(req.body?.pwd) foundUser.password = pwd ? await bcrypt.hash(pwd,10) : foundUser.password;
         if(req.body?.firstname) foundUser.firstname = firstname? firstname : foundUser.firstname;
         if(req.body?.lastname) foundUser.lastname = lastname? lastname: foundUser.lastname;

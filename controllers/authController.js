@@ -43,7 +43,7 @@ const handleLogin = async (req,res) =>{
         //http-only cookie to hold refToken *safety*
         res.cookie('jwt',refreshToken,{httpOnly:true,sameSite:'None',maxAge:24*60*60*1000});//secure:true
         //accesstoken sent to Frontend in json to be refresh a new access after interval :AT should be stored in memory in Frontend*safety*  
-        res.json({accessToken});
+        res.json({...foundUser,accessToken});
     }else{  
         res.sendStatus(401);
     }
